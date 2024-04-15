@@ -1,27 +1,47 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:kansai_no_obachat/components/keyboard.dart';
+import 'package:kansai_no_obachat/components/chat_view.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
 
+  static const title = Text(
+    '関西のおばちゃん',
+    style: TextStyle(
+      fontWeight: FontWeight.bold,
+      fontSize: 19.5,
+      color: Colors.white,
+    ),
+  );
+
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setSystemUIOverlayStyle(
-      const SystemUiOverlayStyle(
-        statusBarColor: Colors.transparent,
-        systemNavigationBarColor: Colors.white,
-      ),
-    );
-
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: const SafeArea(
+      home: SafeArea(
         child: Scaffold(
-          body: Text('this is obachat'),
+          backgroundColor: Colors.indigo[50],
+          appBar: AppBar(
+            title: title,
+            backgroundColor: Colors.deepOrange[400],
+            actions: [
+              IconButton(
+                color: Colors.white,
+                onPressed: () {},
+                icon: const Icon(Icons.settings_outlined),
+              )
+            ],
+          ),
+          body: GestureDetector(
+            onTap: () => primaryFocus?.unfocus(),
+            child: const Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                ChatView(),
+                Keyboard(),
+              ],
+            ),
+          ),
         ),
       ),
     );
