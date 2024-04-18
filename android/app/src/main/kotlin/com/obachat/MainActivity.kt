@@ -1,4 +1,4 @@
-package com.kansainoobachat.kansai_no_obachat
+package com.obachat
 
 import io.flutter.embedding.android.FlutterActivity
 
