@@ -6,7 +6,7 @@ class App extends StatelessWidget {
   const App({super.key});
 
   static const title = Text(
-    '関西のおばちゃん',
+    'おばちゃっと',
     style: TextStyle(
       fontWeight: FontWeight.bold,
       fontSize: 19.5,
@@ -23,6 +23,7 @@ class App extends StatelessWidget {
           backgroundColor: Colors.indigo[50],
           appBar: AppBar(
             title: title,
+            centerTitle: true,
             backgroundColor: Colors.deepOrange[400],
             actions: [
               IconButton(
